@@ -99,7 +99,7 @@ def uploaded():
     Language = request.form['L']
     Notes = request.form['N']
     cursor.execute("""INSERT INTO NJL44F.BOOK (BOOK_ID,BOOK_TITLE,BOOK_TYPE,BINDING,JACKET_CONDITION,GRADE,ISBN,EDITION,PAGES,"LANGUAGE",NOTES) 
-    VALUES (?,?,?,?,?,?,?,?,?,?,?)""",(BookID, BookTitle, BookType, Binding, JacketCondtion,Grade, ISBN, Edition, 1, Language, Notes))
+    VALUES (?,?,?,?,?,?,?,?,?,?,?)""",(BookID, BookTitle, BookType, Binding, JacketCondtion,Grade, ISBN, Edition, Pages, Language, Notes))
     connection.commit()             
     return render_template('upload.html')
 
