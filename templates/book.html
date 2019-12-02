@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <head>
+    <style>
+    table, th, td {
+      border: 1px solid black;
+      empty-cells: hide;
+    }
+    
+    th, td {
+      padding: 15px;
+    }
+    </style>
+  </head>
+
+  <form action = "{{ url_for('Ubook') }}" method = "post">
+    Book Name<br>
+    <input type="text" name="bu"><br>
+    <p>
+    </p>
+    <input type="submit" value="Submit">
+  </form> 
+
+  <table style="margin-left: 360px">
+     <thead>
+        <td width="200px">Book Title</td>
+        <td width="200px">Binding</td>
+        <td width="200px">Book Type</td>
+        <td width="200px">Edition</td>
+        <td width="200px">Grade</td>
+        <td width="200px">ISBN</td>
+        <td width="200px">Jacket Condtion</td>
+        <td width="200px">Language</td>
+        <td width="200px">Notes</td>
+        <td width="200px">Pages</td>
+
+     </thead>
+     
+     {% for data in Datas %}
+      <tr>
+          <td>{{data[0]}}</td>
+          <td>{{data[1]}}</td>
+          <td>{{data[2]}}</td>
+          <td>{{data[3]}}</td>
+          <td>{{data[4]}}</td>
+          <td>{{data[5]}}</td>
+          <td>{{data[6]}}</td>
+          <td>{{data[7]}}</td>
+          <td>{{data[8]}}</td>
+          <td>{{data[9]}}</td>
+
+      </tr>
+     {% endfor %}
+  </table>
+{% endblock %}
