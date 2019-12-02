@@ -78,6 +78,30 @@ def Ubook():
     Datas = cursor.fetchall()
     return render_template('book.html', Datas=Datas)
 
+@app.route('/upload', methods = ['POST', 'GET'])
+def upload():
+    return render_template('upload.html')
+
+@app.route('/uploaded', methods = ['POST', 'GET'])
+def uploaded():
+    cursor = connection.cursor()
+    BookID1 = request.form['BID']
+    BookID = int(BookID1)
+    BookTitle = request.form['BTI']
+    BookType = request.form['BTY']
+    Binding = request.form['B']
+    JacketCondtion = request.form['JC']
+    Grade = request.form['G']
+    ISBN = request.form['ISBN']
+    Edition = request.form['E']
+    Pages1 = request.form['P']
+    Pages = int(Pages1)
+    Language = request.form['L']
+    Notes = request.form['N']
+    cursor.execute("""INSERT INTO NJL44F.BOOK (BOOK_ID,BOOK_TITLE,BOOK_TYPE,BINDING,JACKET_CONDITION,GRADE,ISBN,EDITION,PAGES,"LANGUAGE",NOTES) 
+    VALUES (?,?,?,?,?,?,?,?,?,?,?)""",(BookID, BookTitle, BookType, Binding, JacketCondtion,Grade, ISBN, Edition, 1, Language, Notes))
+    connection.commit()             
+    return render_template('upload.html')
 
 if __name__ == '__main__':
       app.run(host='0.0.0.0', port= int(service_port) )

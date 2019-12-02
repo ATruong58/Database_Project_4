@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div style="float:right; margin-right: 200px">
+    <h3>
+      Hello {{name}} <br>
+      Please fill in the following information to upload an Exam.
+    </h3>
+  </div>
+
+  <div style="margin-left: 250px; margin-top: 200px">
+    <form method="POST" action ="/uploaded" enctype=multipart/form-data>
+      Book ID:<br>
+      <input type="text" name="BID"><br>
+      Book Title:<br>
+      <input type="text" name="BTI"><br>
+      Book Type:<br>
+      <input type="text" name="BTY"><br>
+      Binding:<br>
+      <input type="text" name="B"><br>
+      Jacket Condtion:<br>
+      <input type="text" name="JC"><br>
+      Grade:<br>
+      <input type="text" name="G"><br>
+      ISBN:<br>
+      <input type="text" name="ISBN"><br>
+      Edition:<br>
+      <input type="text" name="E"><br>
+      Pages:<br>
+      <input type="text" name="P"><br>
+      Language:<br>
+      <input type="text" name="L"><br>
+      Notes:<br>
+      <input type="text" name="N"><br>
+      
+      <input type=submit value=Submit>
+    </form>
+  </div>
+{% endblock %}
